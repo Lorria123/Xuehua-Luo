@@ -1,4 +1,6 @@
-# My name:Xuehua-Luo
-Student id:52054053
-School:SWUFE
-Speciality:Information systems and management
+# My name:
+Xuehua-Luo
+# Student id:
+52054053
+# Speciality:
+Information systems and management
