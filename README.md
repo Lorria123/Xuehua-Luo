@@ -4,3 +4,5 @@ Xuehua-Luo
 52054053
 # Speciality:
 Information systems and management
+#Team
+Xuehua Luo;Peiyuan Wang
