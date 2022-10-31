@@ -15,6 +15,7 @@ df = pd.read_csv('coffee-listings-from-all-walmart-stores.csv')
 st.subheader('Correlation between variables')
 sns.heatmap(df.corr(), annot=True, cmap='Blues')
 plt.show()
+st.set_option('deprecation.showPyplotGlobalUse', False)
 st.pyplot()
 
 st.subheader('The Most Popular seller:')
@@ -59,4 +60,5 @@ elif sd == "Details plot":
     g.map_diag(sns.histplot, kde=True)
 
 plt.show()
+st.set_option('deprecation.showPyplotGlobalUse', False)
 st.pyplot()
