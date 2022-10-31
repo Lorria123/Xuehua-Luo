@@ -12,9 +12,10 @@ st.subheader('by Xuehua Luo & Peiyuan Wang')
 
 df = pd.read_csv('coffee-listings-from-all-walmart-stores.csv')
 
-fig1,ax1 = plt.subplot(figsize=(20,5))
-ax1 = sns.heatmap(df.corr(), annot=True, cmap='Blues')
-ax1.set_title('Correlation between variables')
+fig1,ax = plt.subplot(figsize=(20,5))
+ax = sns.heatmap(df.corr(), annot=True, cmap='Blues')
+ax.set_title('Correlation between variables')
+plt.show()
 st.pyplot(fig1)
 
 
