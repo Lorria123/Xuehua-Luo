@@ -19,7 +19,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.pyplot()
 
 st.subheader('The Most Popular seller:')
-fig2,ax2 = plt.subplots(figsize=(20,5))
+fig2,ax2 = plt.subplots(figsize=(40,10))
 ax2 = df.seller_name.value_counts().head(10).sort_values().plot(kind='barh')
 ax2.bar_label(ax2.containers[0])
 ax2.set_title('Most Popular Coffee Seller on Walmart')
@@ -28,10 +28,10 @@ st.pyplot(fig2)
 
 
 
-st.subheader('The Most Rating:')
+st.subheader('The Most Rating(with 5.0):')
 st.write(df.query('rating == rating.max()')[['rating','reviews','title']].sort_values(
     by='reviews', ascending=False
-).head(10).style.hide(axis='index').background_gradient(cmap='Greens'))
+).head(20).style.hide(axis='index').background_gradient(cmap='Greens'))
 
 
 st.subheader('The Most Reviews:')
