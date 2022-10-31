@@ -12,8 +12,10 @@ st.subheader('by Xuehua Luo & Peiyuan Wang')
 
 df = pd.read_csv('coffee-listings-from-all-walmart-stores.csv')
 
-
-
+st.subheader('Correlation between variables')
+sns.heatmap(df.corr(), annot=True, cmap='Blues')
+plt.show()
+st.pyplot()
 
 st.subheader('The Most Popular seller:')
 fig2,ax2 = plt.subplots(figsize=(20,5))
@@ -26,7 +28,7 @@ st.pyplot(fig2)
 
 
 st.subheader('The Most Rating:')
-st.write(df.query('rating == rating.max()')[['title', 'rating', 'reviews']].sort_values(
+st.write(df.query('rating == rating.max()')[['rating','reviews','title']].sort_values(
     by='reviews', ascending=False
 ).head(10).style.hide(axis='index').background_gradient(cmap='Greens'))
 
@@ -57,4 +59,4 @@ elif sd == "Details plot":
     g.map_diag(sns.histplot, kde=True)
 
 plt.show()
-st.pyplot(fig3)
+st.pyplot()
