@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/78694043/197740034-7da619f9-3155-4c6f-8a8c-4183914ee052.png" />
 </p>
-Team 52: 
+Team 19: 
 
 Xuehua Luo ; Peiyuan Wang
 
