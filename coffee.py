@@ -28,7 +28,7 @@ st.pyplot(fig2)
 
 
 
-st.subheader('The Most Rating(with 5.0):')
+st.subheader('What coffee title has the most rating?')
 st.write(df.query('rating == rating.max()')[['rating','reviews','title']].sort_values(
     by='reviews', ascending=False
 ).head(20).style.hide(axis='index').background_gradient(cmap='Greens'))
