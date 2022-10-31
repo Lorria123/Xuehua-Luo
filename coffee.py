@@ -28,7 +28,7 @@ st.pyplot(fig2)
 name_filter = st.multiselect(
     'Choose the seller',
     df.seller_name.unique(),
-    df.seller_name.unique()
+    'walmart.com'
 )
 
 df = df[df.seller_name.isin(name_filter)]
