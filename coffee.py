@@ -12,16 +12,19 @@ st.subheader('by Xuehua Luo & Peiyuan Wang')
 
 df = pd.read_csv('coffee-listings-from-all-walmart-stores.csv')
 
+fig1,ax1 = plt.subplot(figsize=(20,5))
+ax1 = sns.heatmap(df.corr(), annot=True, cmap='Blues')
+ax1.set_title('Correlation between variables')
+st.pyplot(fig1)
+
+
 st.subheader('The Most Popular seller:')
-fig1,ax = plt.subplots(2,1,figsize=(20,5))
-ax[0] = df.seller_name.value_counts().head(10).sort_values().plot(kind='barh')
-ax[0].bar_label(ax[0].containers[0])
-ax[0].set_title('Most Popular Coffee Seller on Walmart')
+fig2,ax2 = plt.subplots(figsize=(20,5))
+ax2 = df.seller_name.value_counts().head(10).sort_values().plot(kind='barh')
+ax2.bar_label(ax2.containers[0])
+ax2.set_title('Most Popular Coffee Seller on Walmart')
+st.pyplot(fig2)
 
-ax[1] = sns.heatmap(df.corr(), annot=True, cmap='Blues')
-ax[1].set_title('Correlation between variables')
-
-st.pyplot()
 
 
 
@@ -46,7 +49,7 @@ sd = st.selectbox(
     ]
 )
 
-fig2 = plt.figure(figsize=(15, 5))
+fig3 = plt.figure(figsize=(15, 5))
 if sd == "Total plot":
     sns.jointplot(data=df, x='price', y='weight_formatted_to_gramms', kind='hex')
     
@@ -57,5 +60,5 @@ elif sd == "Details plot":
     g.map_diag(sns.histplot, kde=True)
 
 plt.show()
-st.pyplot()
+st.pyplot(fig3)
 
