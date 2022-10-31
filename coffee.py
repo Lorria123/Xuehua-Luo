@@ -27,8 +27,12 @@ st.write(df.query('reviews == reviews.max()')[['title', 'reviews']])
 
 
 st.subheader('The Most Popular seller:')
-fig,ax = plt.subplots(figsize=(20,5))
-st.write(df['seller_name'].value_counts().head(10).sort_values().plot.hist(kind='barh'))
+fig,ax = plt.subplots(1,5,figsize=(20,5))
+ax = df['seller_name'].value_counts().head(10).sort_values().plot.hist(kind='barh')
+ax.bar_label(ax.containers[0])
+ax.set_title('Most Popular Coffee Seller on Walmart')
+
+
 
 st.subheader('The Most Frequent Coffee Weight: 300-500g')
 sns.jointplot(data=df, x='price', y='weight_formatted_to_gramms', kind='hex')
