@@ -27,19 +27,31 @@ st.write(df.query('reviews == reviews.max()')[['title', 'reviews']])
 
 
 st.subheader('The Most Popular seller:')
-fig,ax = plt.subplots(1,5,figsize=(20,5))
+fig1,ax = plt.subplots(figsize=(20,5))
 ax = df.seller_name.value_counts().head(10).sort_values().plot(kind='barh')
 ax.bar_label(ax.containers[0])
 ax.set_title('Most Popular Coffee Seller on Walmart')
-
+st.pyplot(fig1)
 
 
 st.subheader('The Most Frequent Coffee Weight: 300-500g')
-sns.jointplot(data=df, x='price', y='weight_formatted_to_gramms', kind='hex')
 
-g = sns.PairGrid(df[['price', 'weight_formatted_to_gramms']], height=4)
-g.map_upper(sns.histplot)
-g.map_lower(sns.kdeplot, fill=True)
-g.map_diag(sns.histplot, kde=True)
+sd = st.selectbox(
+    "Select a Plot", #Drop Down Menu Name
+    [
+    "Total plot", #First option in menu
+    "Details plot"   #Seconf option in menu
+    ]
+)
 
-st.pyplot(fig)
+fig2 = plt.figure(figsize=(15, 5))
+if sd == "Total plot":
+    sns.jointplot(data=df, x='price', y='weight_formatted_to_gramms', kind='hex')
+    
+elif sd == "Details plot":
+    g = sns.PairGrid(df[['price', 'weight_formatted_to_gramms']], height=2)
+    g.map_upper(sns.histplot)
+    g.map_lower(sns.kdeplot, fill=True)
+    g.map_diag(sns.histplot, kde=True)
+st.pyplot(fig2)
+
