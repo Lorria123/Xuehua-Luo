@@ -27,7 +27,11 @@ st.write(df.query('reviews == reviews.max()')[['title', 'reviews']])
 
 
 st.subheader('The Most Popular seller:')
-
+fig1,ax = plt.subplots(figsize=(20,5))
+ax = df.seller_name.value_counts().head(10).sort_values().plot(kind='barh')
+ax.bar_label(ax.containers[0])
+ax.set_title('Most Popular Coffee Seller on Walmart')
+st.pyplot(fig1)
 
 
 st.subheader('The Most Frequent Coffee Weight: 300-500g')
