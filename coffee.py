@@ -15,7 +15,7 @@ df = pd.read_csv('coffee-listings-from-all-walmart-stores.csv')
 st.subheader('The Most Popular seller:')
 fig1,ax = plt.subplots(2,1,figsize=(20,5))
 ax[0] = df.seller_name.value_counts().head(10).sort_values().plot(kind='barh')
-ax[0].bar_label(ax.containers[0])
+ax[0].bar_label(ax[0].containers[0])
 ax[0].set_title('Most Popular Coffee Seller on Walmart')
 
 ax[1] = sns.heatmap(df.corr(), annot=True, cmap='Blues')
