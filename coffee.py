@@ -45,13 +45,6 @@ sd = st.selectbox(
 )
 
 fig2 = plt.figure(figsize=(15, 5))
-if sd == "Total plot":
-    sns.jointplot(data=df, x='price', y='weight_formatted_to_gramms', kind='hex')
-    
-elif sd == "Details plot":
-    g = sns.PairGrid(df[['price', 'weight_formatted_to_gramms']], height=2)
-    g.map_upper(sns.histplot)
-    g.map_lower(sns.kdeplot, fill=True)
-    g.map_diag(sns.histplot, kde=True)
+sns.jointplot(data=df, x='price', y='weight_formatted_to_gramms', kind='hex')
 st.pyplot(fig2)
 
