@@ -44,7 +44,7 @@ st.write(df.query('reviews == reviews.max()')[['title', 'reviews']])
 
 
 
-st.subheader('The Most Frequent Coffee Weight: 300-500g')
+st.subheader('The Most Frequent Coffee Weight(based on seller)')
 
 sd = st.selectbox(
     "Select a Plot", #Drop Down Menu Name
