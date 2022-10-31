@@ -25,13 +25,21 @@ ax2.bar_label(ax2.containers[0])
 ax2.set_title('Most Popular Coffee Seller on Walmart')
 st.pyplot(fig2)
 
+df['rating_level'] = pd.cut(df['rating'],[0,1,2,3,4,5], labels=['0-1','1-2','2-3','3-4','4-5'])
+
+rating_filter = st.sidebar.selectbox(
+    'rating_level',
+    df.rating_level.unique()
+    )
+
+df = df[df.raing_level == rating_filter]
 
 
-
-st.subheader('What coffee title has the most rating?')
+st.subheader('What coffee title has the most rating?(on range)')
 st.write(df.query('rating == rating.max()')[['rating','reviews','title']].sort_values(
     by='reviews', ascending=False
 ).head(20).style.hide(axis='index').background_gradient(cmap='Greens'))
+
 
 
 st.subheader('The Most Reviews:')
