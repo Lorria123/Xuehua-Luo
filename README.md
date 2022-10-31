@@ -13,7 +13,7 @@ Xuehua-Luo
 
 Student id:
 
-52054053
+52054053 ; 42054041
 
 This repo covers:
 1. Our full process of exploratory data analysis.
